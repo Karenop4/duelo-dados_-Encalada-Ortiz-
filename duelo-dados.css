@@ -1,174 +1,221 @@
 /*=======================================================================================*/
 /*======================================DISEÑO DADO======================================*/
+body {
+	background-color: bisque;
+}
+
+body h1 {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.Titulo {
+	width: 30%;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #333;
+	padding: 20px;
+	position: relative;
+	margin-top: 50px;
+	font-family: monospace;
+	background-color: white;
+}
+
+.Titulo h1 {
+	margin: 0;
+	font-size: 3rem;
+}
+.Titulo h2{
+	font-size: 1rem;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+	text-align: center
+}
+
 .contenedor {
-    width: 200px;
-    height: 200px;
-    perspective: 600px;
+	width: 200px;
+	height: 200px;
+	perspective: 600px;
+	background-color: aliceblue;
 }
 
 .dado {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transform: translateZ(-100px);
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-style: preserve-3d;
+	transform: translateZ(-100px);
 }
 
-.cara_dado{
-    width: 200px;
-    height: 200px;
-    border-radius: 2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    position:absolute;
+.cara_dado {
+	width: 200px;
+	height: 200px;
+	border-radius: 2%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	position: absolute;
 }
 
-.cara_dado_frente{ 
-    transform: rotateY(0deg) translateZ(100px); 
-    background-color: #f1c40f3c;
+.cara_dado_frente {
+	transform: rotateY(0deg) translateZ(100px);
+	background-color: #f1c40f3c;
 }
-.cara_dado_derecha{ 
-    transform: rotateY(90deg) translateZ(100px);
-    background-color: #f10f0f3c;
+
+.cara_dado_derecha {
+	transform: rotateY(90deg) translateZ(100px);
+	background-color: #f10f0f3c;
 }
-.cara_dado_atras{ 
-    transform: rotateY(180deg) translateZ(100px);
-    background-color: #0ff1e23c;
+
+.cara_dado_atras {
+	transform: rotateY(180deg) translateZ(100px);
+	background-color: #0ff1e23c;
 }
-.cara_dado_izquierda{ 
-    transform: rotateY(-90deg) translateZ(100px);
-    background-color: #0ff1623c;
+
+.cara_dado_izquierda {
+	transform: rotateY(-90deg) translateZ(100px);
+	background-color: #0ff1623c;
 }
-.cara_dado_arriba{ 
-    transform: rotateX(90deg) translateZ(100px);
-    background-color: #0f13f13c;
+
+.cara_dado_arriba {
+	transform: rotateX(90deg) translateZ(100px);
+	background-color: #0f13f13c;
 }
-.cara_dado_abajo{ 
-    transform: rotateX(-90deg) translateZ(100px);
-    background-color: #e90ff13c;
+
+.cara_dado_abajo {
+	transform: rotateX(-90deg) translateZ(100px);
+	background-color: #e90ff13c;
 }
 
 .contenido {
-    display: grid;
-    grid-template-columns: repeat(3, 40px);
-    grid-template-rows: repeat(3, 40px);
+	display: grid;
+	grid-template-columns: repeat(3, 40px);
+	grid-template-rows: repeat(3, 40px);
 }
 
 .punto {
-    width: 30px;
-    height: 30px;
-    background-color: black;
-    border-radius: 50%;
-    display: inline-block;
+	width: 30px;
+	height: 30px;
+	background-color: black;
+	border-radius: 50%;
+	display: inline-block;
 }
 
 
 .cara_dado_frente .contenido .punto {
-    grid-row: 2;
-    grid-column: 2;
+	grid-row: 2;
+	grid-column: 2;
 }
 
 .cara_dado_atras .contenido .punto:nth-child(1) {
-    grid-row: 1;
-    grid-column: 1;
+	grid-row: 1;
+	grid-column: 1;
 }
 
 .cara_dado_atras .contenido .punto:nth-child(2) {
-    grid-row: 1;
-    grid-column: 2;
+	grid-row: 1;
+	grid-column: 2;
 }
 
 .cara_dado_atras .contenido .punto:nth-child(3) {
-    grid-row: 1;
-    grid-column: 3;
+	grid-row: 1;
+	grid-column: 3;
 }
 
 .cara_dado_atras .contenido .punto:nth-child(4) {
-    grid-row: 3;
-    grid-column: 1;
+	grid-row: 3;
+	grid-column: 1;
 }
 
 .cara_dado_atras .contenido .punto:nth-child(5) {
-    grid-row: 3;
-    grid-column: 2;
+	grid-row: 3;
+	grid-column: 2;
 }
 
 .cara_dado_atras .contenido .punto:nth-child(6) {
-    grid-row: 3;
-    grid-column: 3;
+	grid-row: 3;
+	grid-column: 3;
 }
 
 .cara_dado_izquierda .contenido .punto:nth-child(1) {
-    grid-row: 1;
-    grid-column: 3;
+	grid-row: 1;
+	grid-column: 3;
 }
 
 .cara_dado_izquierda .contenido .punto:nth-child(2) {
-    grid-row: 2;
-    grid-column: 2;
+	grid-row: 2;
+	grid-column: 2;
 }
 
 .cara_dado_izquierda .contenido .punto:nth-child(3) {
-    grid-row: 3;
-    grid-column: 1;
+	grid-row: 3;
+	grid-column: 1;
 }
 
 .cara_dado_derecha .contenido .punto:nth-child(1) {
-    grid-row: 1;
-    grid-column: 1;
+	grid-row: 1;
+	grid-column: 1;
 }
 
 .cara_dado_derecha .contenido .punto:nth-child(2) {
-    grid-row: 1;
-    grid-column: 3;
+	grid-row: 1;
+	grid-column: 3;
 }
 
 .cara_dado_derecha .contenido .punto:nth-child(3) {
-    grid-row: 3;
-    grid-column: 1;
+	grid-row: 3;
+	grid-column: 1;
 }
 
 .cara_dado_derecha .contenido .punto:nth-child(4) {
-    grid-row: 3;
-    grid-column: 3;
+	grid-row: 3;
+	grid-column: 3;
 }
 
 .cara_dado_arriba .contenido .punto:nth-child(1) {
-    grid-row: 1;
-    grid-column: 1;
+	grid-row: 1;
+	grid-column: 1;
 }
 
 .cara_dado_arriba .contenido .punto:nth-child(2) {
-    grid-row: 1;
-    grid-column: 3;
+	grid-row: 1;
+	grid-column: 3;
 }
 
 .cara_dado_arriba .contenido .punto:nth-child(3) {
-    grid-row: 2;
-    grid-column: 2;
+	grid-row: 2;
+	grid-column: 2;
 }
 
 .cara_dado_arriba .contenido .punto:nth-child(4) {
-    grid-row: 3;
-    grid-column: 1;
+	grid-row: 3;
+	grid-column: 1;
 }
 
 .cara_dado_arriba .contenido .punto:nth-child(5) {
-    grid-row: 3;
-    grid-column: 3;
+	grid-row: 3;
+	grid-column: 3;
 }
 
 .cara_dado_abajo .contenido .punto:nth-child(1) {
-    grid-row: 1;
-    grid-column: 3;
+	grid-row: 1;
+	grid-column: 3;
 }
 
 .cara_dado_abajo .contenido .punto:nth-child(2) {
-    grid-row: 3;
-    grid-column: 1;
+	grid-row: 3;
+	grid-column: 1;
 }
 
 /*=======================================================================================*/
