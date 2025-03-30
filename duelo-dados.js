@@ -28,9 +28,16 @@ escribirPunt();
 //Listener especifico para cada boton, en ambos se deshabilita el propio boton despues de
 //lanzar los dados y se habilita el boton contrario, ademas, reproduce un sonido de dados
 boton.addEventListener("click", () => {
+
+    if(ronda==4){
+        boton.disabled = true;
+        boton2.disabled = true;
+        return;
+    }
+
     audioEtiqueta.setAttribute("src", "Recursos/dados.mp3")
     boton.disabled = true;
-    turno = inputJ1.value;
+    
     dado1.style.transition = '';
     dado1.style.transform = `translateY(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
 
@@ -71,17 +78,18 @@ boton.addEventListener("click", () => {
                     j1 = 0;
                     actualizarRonda();
                     boton2.disabled = false;
+                    
                 }, 2000);
             }, 80);
         }, 100);
-
+        turno = inputJ2.value;
     }, 100);
 })
 
 boton2.addEventListener("click", () => {
     audioEtiqueta.setAttribute("src", "Recursos/dados.mp3")
     boton2.disabled = true;
-    turno = inputJ2.value;
+    
     ronda = ronda + 1;
 
     dado2.style.transition = '';
@@ -124,10 +132,11 @@ boton2.addEventListener("click", () => {
                     i += 1;
                     actualizarRonda();
                     boton.disabled = false;
+                    
                 }, 2000);
             }, 80);
         }, 100);
-
+        turno = inputJ1.value;
     }, 100);
 })
 //Listener para que se lancen los dados una vez se pulse la barra espaciadora
@@ -145,7 +154,14 @@ document.addEventListener("keydown", function (e) {
 //Listener para boton que reinicia la pagina 
 botonR.addEventListener("click", () => {
     location.reload(true);
-})
+});
+
+//Listener para actualizar el nombre del Turno cuando se ingresa el nombre del jugador 1
+inputJ1.addEventListener("input", () => {
+    turno = inputJ1.value || "Jugador 1";
+    rondas.innerText = "Ronda: " + ronda + "\n  Turno: " + turno;
+});
+
 //Mostramos la mejor puntuación registrada del localStorage
 if (MejorPuntuacion != null) {
     mp.innerText = "\nMejor Puntuación: " + MejorPuntuacion;
@@ -167,8 +183,6 @@ function actualizarRonda() {
             mejorPunt(puntuacionJ2);
         }
         rondas.innerText = "FIN DEL JUEGO!!! \n Ganador:" + ganador;
-        boton.disabled = true;
-        boton2.disabled = true;
     }
 }
 //Funcion para sobreescribir la mejor puntuacion registrada
