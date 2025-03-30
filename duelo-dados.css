@@ -130,72 +130,92 @@ footer {
 /*=======================================================================================*/
 /*======================================DISEÑO DADO======================================*/
 
-.contenedor {
-	width: 200px;
-	height: 200px;
-	perspective: 600px;
-	background-color: aliceblue;
+.ContenedorDados {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px auto;
+	gap: 20px;
+	width: 90%;
+	max-width: 1200px;
+	flex-wrap: wrap;
 }
 
-.dado {
-	width: 100%;
-	height: 100%;
-	position: relative;
-	transform-style: preserve-3d;
+.contenedor {
+	background-color: aliceblue;
+	width: 200px;
+    height: 200px;
+    position: relative;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 600px;
+	padding: 30px;
+}
+
+.dado{
 	transform: translateZ(-100px);
+    width: 50%;
+    height: 50%;
+    transform-style: preserve-3d;
+}
+
+.dado2{
+	transform: translateZ(-100px);
+	width: 50%;
+	height: 50%;
+	transform-style: preserve-3d;
 }
 
 .cara_dado {
-	width: 200px;
-	height: 200px;
-	border-radius: 2%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	position: absolute;
+	position: absolute; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    background: blue;
+    border: black 1px solid;
+    border-radius: 5%;
+}
+
+.dado2 .cara_dado {
+	background:red;
 }
 
 .cara_dado_frente {
-	transform: rotateY(0deg) translateZ(100px);
-	background-color: #f1c40f3c;
+	transform: rotateY(0deg) translateZ(50px);
 }
 
 .cara_dado_derecha {
-	transform: rotateY(90deg) translateZ(100px);
-	background-color: #f10f0f3c;
+	transform: rotateY(90deg) translateZ(50px);
 }
 
 .cara_dado_atras {
-	transform: rotateY(180deg) translateZ(100px);
-	background-color: #0ff1e23c;
+	transform: rotateY(180deg) translateZ(50px);
 }
 
 .cara_dado_izquierda {
-	transform: rotateY(-90deg) translateZ(100px);
-	background-color: #0ff1623c;
+	transform: rotateY(-90deg) translateZ(50px);
 }
 
 .cara_dado_arriba {
-	transform: rotateX(90deg) translateZ(100px);
-	background-color: #0f13f13c;
+	transform: rotateX(90deg) translateZ(50px);
 }
 
 .cara_dado_abajo {
-	transform: rotateX(-90deg) translateZ(100px);
-	background-color: #e90ff13c;
+	transform: rotateX(-90deg) translateZ(50px);
 }
 
 .contenido {
 	display: grid;
-	grid-template-columns: repeat(3, 40px);
-	grid-template-rows: repeat(3, 40px);
+	grid-template-columns: repeat(3, 20px);
+	grid-template-rows: repeat(3, 20px);
 }
 
 .punto {
-	width: 30px;
-	height: 30px;
+	width: 20px;
+	height: 20px;
 	background-color: black;
 	border-radius: 50%;
 	display: inline-block;
