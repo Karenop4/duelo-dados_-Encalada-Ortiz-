@@ -6,13 +6,14 @@
     <meta charset="UTF8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="duelo-dados.css" />
+    <link rel="icon" href="Recursos/dados.png"/>
 </head>
 
 <body>
     <header>
         <div class="Titulo">
             <h1>Duelo de dados</h1>
-            <h2>Juego de dados para 2 jugadores</h2>
+            <h2>Juego de dados para 2 jugadores <br> 3 turnos - 3 rondas<br> Gana el que obtenga el mayor puntaje</h2>
         </div>
     </header>
     <div class="Rondas">
@@ -24,8 +25,8 @@
         </p>
     </div>
     <div class="Input">
-        <input type="text" id="InputJ1" value="Jugador1">
-        <input type="text" id="InputJ2" value="Jugador2">
+        <input type="text" id="InputJ1" autocomplete="off" value="Jugador1">
+        <input type="text" id="InputJ2" autocomplete="off" value="Jugador2">
     </div>
     <main>
         <div class="ContenedorDados">
@@ -33,7 +34,7 @@
             <!--  Este es el contenedor principal donde se mostrará el dado1  -->
             <!--===============================DADO 1=========================-->
             <div class="panel">
-                <p id="J1">Puntuación:</p>
+                <p id="J1"></p>
             </div>
             <div class="contenedor">
                 <div class="dado">
@@ -138,7 +139,7 @@
                 </div>
             </div>
             <div class="panel">
-                <p id="J2">Puntuación:</p>
+                <p id="J2"></p>
             </div>
             <br>
         </div>

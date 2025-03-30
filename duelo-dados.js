@@ -22,19 +22,11 @@ let Pj2 = document.querySelector(".panel #J2")
 let j1 = 0;
 let j2 = 0;
 let i = 1;
-
 actualizarRonda();
 escribirPunt();
 //Listener especifico para cada boton, en ambos se deshabilita el propio boton despues de
 //lanzar los dados y se habilita el boton contrario, ademas, reproduce un sonido de dados
 boton.addEventListener("click", () => {
-
-    if(ronda==4){
-        boton.disabled = true;
-        boton2.disabled = true;
-        return;
-    }
-
     audioEtiqueta.setAttribute("src", "Recursos/dados.mp3")
     boton.disabled = true;
     
@@ -52,7 +44,6 @@ boton.addEventListener("click", () => {
                 let randomValue = Math.floor((Math.random() * 6) + 1);
                 puntuacionJ1 += randomValue;
                 j1 = randomValue;
-                escribirPunt();
                 switch (randomValue) {
                     case 1:
                         dado1.style.transform = `translateY(50px) rotateX(3600deg) rotateY(3600deg) rotateZ(3600deg)`;
@@ -130,8 +121,8 @@ boton2.addEventListener("click", () => {
                     escribirPunt(i,2);
                     j2 = 0;
                     i += 1;
-                    actualizarRonda();
                     boton.disabled = false;
+                    actualizarRonda();
                     
                 }, 2000);
             }, 80);
@@ -158,10 +149,18 @@ botonR.addEventListener("click", () => {
 
 //Listener para actualizar el nombre del Turno cuando se ingresa el nombre del jugador 1
 inputJ1.addEventListener("input", () => {
+    if(boton.disabled==false){
     turno = inputJ1.value || "Jugador 1";
     rondas.innerText = "Ronda: " + ronda + "\n  Turno: " + turno;
+    }
 });
-
+//Listener para actualizar el nombre del Turno cuando se ingresa el nombre del jugador 2
+inputJ2.addEventListener("input", () => {
+    if(boton2.disabled==false){
+    turno = inputJ2.value || "Jugador 2";
+    rondas.innerText = "Ronda: " + ronda + "\n  Turno: " + turno;
+    }
+});
 //Mostramos la mejor puntuación registrada del localStorage
 if (MejorPuntuacion != null) {
     mp.innerText = "\nMejor Puntuación: " + MejorPuntuacion;
@@ -169,8 +168,10 @@ if (MejorPuntuacion != null) {
 //Actualizamos el texto de turnos y rondas, esta funcion es llamada por cada boton despues de un lanzamiento
 //Una vez finalicen las 3 rondas el juego termina
 function actualizarRonda() {
-    rondas.innerText = "Ronda: " + ronda + "\n  Turno: " + turno;
-    if (ronda == 4) {
+    if (ronda<=3) {
+        rondas.innerText = "Ronda: " + ronda + "\n  Turno: " + turno;
+    }
+    else{
         if (puntuacionJ1 > puntuacionJ2) {
             ganador = inputJ1.value;
             mejorPunt(puntuacionJ1);
@@ -183,6 +184,7 @@ function actualizarRonda() {
             mejorPunt(puntuacionJ2);
         }
         rondas.innerText = "FIN DEL JUEGO!!! \n Ganador:" + ganador;
+        boton.disabled=true;
     }
 }
 //Funcion para sobreescribir la mejor puntuacion registrada
