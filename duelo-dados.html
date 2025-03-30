@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Duelo de dados</title>
     <meta charset="UTF8">
@@ -23,14 +24,17 @@
         </p>
     </div>
     <div class="Input">
-        <input type="text" class="InputJ1" value="Nombre J1">
-        <input type="text" class="InputJ2" value="Nombre J2">
+        <input type="text" id="InputJ1" value="Jugador1">
+        <input type="text" id="InputJ2" value="Jugador2">
     </div>
     <main>
         <div class="ContenedorDados">
             <!--==============================================================-->
             <!--  Este es el contenedor principal donde se mostrará el dado1  -->
             <!--===============================DADO 1=========================-->
+            <div class="panel">
+                <p id="J1">Puntuación:</p>
+            </div>
             <div class="contenedor">
                 <div class="dado">
                     <div class="cara_dado cara_dado_frente">
@@ -133,15 +137,18 @@
                     </div>
                 </div>
             </div>
+            <div class="panel">
+                <p id="J2">Puntuación:</p>
+            </div>
             <br>
         </div>
-        
+
         <!--==============================================================-->
         <!--==============================================================-->
     </main>
     <div class="Botones">
-        <button class="BttonJ1">Lanzar</button>
-        <button class="BttonJ2">Lanzar</button>
+        <button class="BttonJ1" name="BttonJ1">Lanzar <kbd>Espacio</kbd></button>
+        <button class="BttonJ2" name="BttonJ2">Lanzar <kbd>Espacio</kbd></button>
     </div>
     <div class="Reiniciar"><button>Reiniciar</button></div>
     <footer>
@@ -154,7 +161,7 @@
             </a>
         </p>
     </footer>
-    <audio src="audio/dados.mp3"></audio>
+    <audio src="Recursos/dados.mp3"></audio>
     <script src="duelo-dados.js"></script>
 </body>
 
