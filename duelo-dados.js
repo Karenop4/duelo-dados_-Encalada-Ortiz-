@@ -30,7 +30,6 @@ escribirPunt();
 boton.addEventListener("click", () => {
     audioEtiqueta.setAttribute("src", "Recursos/dados.mp3")
     boton.disabled = true;
-    boton2.disabled = false;
     turno = inputJ1.value;
     dado1.style.transition = '';
     dado1.style.transform = `translateY(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
@@ -71,17 +70,16 @@ boton.addEventListener("click", () => {
                     escribirPunt(i,1);
                     j1 = 0;
                     actualizarRonda();
+                    boton2.disabled = false;
                 }, 2000);
             }, 80);
         }, 100);
 
     }, 100);
-
 })
 
 boton2.addEventListener("click", () => {
     audioEtiqueta.setAttribute("src", "Recursos/dados.mp3")
-    boton.disabled = false;
     boton2.disabled = true;
     turno = inputJ2.value;
     ronda = ronda + 1;
@@ -125,12 +123,12 @@ boton2.addEventListener("click", () => {
                     j2 = 0;
                     i += 1;
                     actualizarRonda();
+                    boton.disabled = false;
                 }, 2000);
             }, 80);
         }, 100);
 
     }, 100);
-
 })
 //Listener para que se lancen los dados una vez se pulse la barra espaciadora
 document.addEventListener("keydown", function (e) {
@@ -138,7 +136,7 @@ document.addEventListener("keydown", function (e) {
         e.preventDefault();
         if (boton.disabled == false) {
             boton.click();
-        }
+        }       
         else if (boton2.disabled == false) {
             boton2.click();
         }
