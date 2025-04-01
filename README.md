@@ -1,10 +1,9 @@
 # Duelo de Dados
-El proyecto presenta un pequeño juego en el que los jugadores se turnan para lanzar un par de dados,  
-después de cada lanzamiento su puntuación se registra en un marcador. Después de 3 RONDAS el jugador  
-con la mayor puntuación gana y se presenta en pantalla.  
+El proyecto presenta un pequeño juego en el que los jugadores se turnan para lanzar un dado,  
+después de cada lanzamiento su puntuación se registra en un marcador. 
 ## Reglas:  
 Empezando por el jugador 1, se lanza el dado y este registra un numero al azar, una vez que se muestra el numero  
-es el turno del jugador 2.  
+es el turno del jugador 2. Después de 3 Rondas(1 turno cada jugador) el jugador que haya registrado la mayor puntuación gana.
 ## Funcionamiento:  
 Cada jugador cuenta con su propio espacio y dado diferenciado.  
 ![](Recursos/Imagenes%20README/PanelDados.png)  
